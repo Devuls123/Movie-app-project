@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0d12">
+  <title>CineVault | Movie Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">C</span><span>CINE<span class="brand-light">VAULT</span></span></a>
+    <nav><a class="nav-link active" href="#library">Discover</a><a class="nav-link" href="#library">My Library</a></nav>
+    <button class="primary-button header-add" id="addMovieTop"><span>＋</span> Add movie</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR PERSONAL CINEMA</div>
+        <h1>Stories worth<br> <span>remembering.</span></h1>
+        <p>Your movies, all in one place. Discover, organize, and keep track of the stories you love.</p>
+        <a class="hero-button" href="#library">Explore collection <span>↘</span></a>
+      </div>
+      <div class="hero-art" aria-label="Decorative cinematic poster collage">
+        <div class="poster poster-back poster-left"><div class="poster-glow"></div><span>BEYOND<br>THE STARS</span><small>A JOURNEY UNKNOWN</small></div>
+        <div class="poster poster-back poster-right"><div class="poster-glow"></div><span>THE<br>LAST LIGHT</span><small>EVERY END BEGINS</small></div>
+        <div class="poster poster-main"><div class="poster-sun"></div><div class="poster-mountain"></div><div class="poster-main-text"><small>AN ORIGINAL STORY</small><strong>AFTER<br>THE HORIZON</strong><span>COMING TO YOUR COLLECTION</span></div></div>
+        <div class="floating-rating">★ <b>9.2</b><small>EDITOR'S PICK</small></div>
+      </div>
+      <div class="hero-bottom"><span>CURATED FOR YOUR NEXT MOVIE NIGHT</span><span>01 — COLLECTION</span></div>
+    </section>
+
+    <section class="library-section" id="library">
+      <div class="section-heading">
+        <div><div class="eyebrow">THE COLLECTION</div><h2>Your movie library<span class="heading-period">.</span></h2><p class="section-subtitle">A little world of stories you can return to.</p></div>
+        <button class="primary-button" id="addMovieMain">＋ Add a movie</button>
+      </div>
+      <div class="toolbar">
+        <label class="search-box"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Search movies, titles..." autocomplete="off"><kbd>⌘ K</kbd></label>
+        <label class="filter-box"><span>Genre</span><select id="genreFilter"><option>All Genres</option><option>Action</option><option>Adventure</option><option>Animation</option><option>Comedy</option><option>Crime</option><option>Drama</option><option>Fantasy</option><option>Horror</option><option>Romance</option><option>Sci-Fi</option><option>Thriller</option><option>Documentary</option></select></label>
+        <div class="result-count" id="resultCount">Loading collection…</div>
+      </div>
+      <div id="notice" class="notice" role="status" hidden></div>
+      <div id="movieGrid" class="movie-grid"><div class="loading-state">Opening the curtains<span>•••</span></div></div>
+      <div class="empty-state" id="emptyState" hidden><div class="empty-icon">✳</div><h3>No movies found</h3><p>Try another search or add a movie to your collection.</p><button class="primary-button" id="emptyAdd">＋ Add your first movie</button></div>
+    </section>
+    <footer><a class="brand footer-brand" href="#"><span class="brand-mark">C</span><span>CINE<span class="brand-light">VAULT</span></span></a><span>A personal space for stories that stay with us.</span><span>BUILT FOR MOVIE LOVERS ✦</span></footer>
+  </main>
+
+  <dialog id="movieDialog">
+    <form id="movieForm" class="movie-form">
+      <div class="dialog-heading"><div><div class="eyebrow">YOUR COLLECTION</div><h2 id="dialogTitle">Add a movie</h2></div><button type="button" class="close-button" id="closeDialog" aria-label="Close">×</button></div>
+      <input type="hidden" id="movieId">
+      <label>Movie title *<input id="title" name="title" required maxlength="120" placeholder="e.g. Interstellar"></label>
+      <div class="form-row">
+        <label>Release year *<input id="year" name="year" type="number" min="1888" max="2100" required placeholder="2024"></label>
+        <label>Genre *<select id="genre" name="genre" required><option value="">Choose genre</option><option>Action</option><option>Adventure</option><option>Animation</option><option>Comedy</option><option>Crime</option><option>Drama</option><option>Fantasy</option><option>Horror</option><option>Romance</option><option>Sci-Fi</option><option>Thriller</option><option>Documentary</option></select></label>
+      </div>
+      <div class="form-row">
+        <label>Rating (0–10)<input id="rating" name="rating" type="number" min="0" max="10" step="0.1" value="0"></label>
+        <label>Director<input id="director" name="director" placeholder="Director's name"></label>
+      </div>
+      <label>Poster image URL<input id="poster" name="poster" type="url" placeholder="https://example.com/poster.jpg"></label>
+      <label>Synopsis<textarea id="description" name="description" rows="3" maxlength="1000" placeholder="What is this movie about?"></textarea></label>
+      <p class="form-error" id="formError" hidden></p>
+      <div class="dialog-actions"><button type="button" class="secondary-button" id="cancelDialog">Cancel</button><button class="primary-button" type="submit" id="saveButton">Save movie ↗</button></div>
+    </form>
+  </dialog>
+  <dialog id="detailDialog" class="detail-dialog"><button class="close-button detail-close" id="closeDetail" aria-label="Close">×</button><div id="detailContent"></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
