@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CineVault — Movie App
 
 A full-stack movie catalogue project using HTML, CSS, JavaScript, Node.js, Express, MongoDB and Mongoose.
@@ -79,3 +80,7 @@ MongoDB creates the `movie_app` database and `movies` collection when the first 
 
 ## Note
 This is an academic starter project. It does not include login/authentication, so do not expose it publicly with unrestricted create/update/delete routes without adding appropriate security.
+=======
+# Movie-app-project
+Full-stack Movie App built with Node.js, Express, MongoDB, HTML, CSS, and JavaScript.
+>>>>>>> 7c57f3be4b9d9ac5ae4ebb7984c6d891d3b68759
