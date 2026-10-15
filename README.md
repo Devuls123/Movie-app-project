@@ -393,16 +393,6 @@ MongoDB also assigns each document a unique `_id`.
 
 ---
 
-## 🤝 Team Work Distribution
-
-| Team member | Module | Main files |
-|---|---|---|
-| Devika A B | Homepage UI and responsive design | `public/index.html`, `public/style.css` |
-| Devika B S | Search, filtering, and details | `public/script.js` and related frontend enhancements |
-| Devika S | Express server and REST API | `server.js`, `routes/movies.js` |
-| Devipriya P | Database connection and schema | `config/db.js`, `models/Movie.js` |
-| Devu L S | Admin dashboard and watchlist | `public/admin.html`, `public/admin.js`, `public/favorites.js` |
-
 ### Shared responsibilities
 
 All five members should:
